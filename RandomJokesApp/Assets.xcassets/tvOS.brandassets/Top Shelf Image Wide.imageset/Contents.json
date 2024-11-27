@@ -1,10 +1,12 @@
 {
   "images" : [
     {
+      "filename" : "JokeFetcher tvOS TopShelfWide.png",
       "idiom" : "tv",
       "scale" : "1x"
     },
     {
+      "filename" : "JokeFetcher tvOS TopShelfWide@2x.png",
       "idiom" : "tv",
       "scale" : "2x"
     }
