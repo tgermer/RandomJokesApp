@@ -1,0 +1,372 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "About Developer" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Über den Entwickler"
+          }
+        }
+      }
+    },
+    "App available in English and German" : {
+
+    },
+    "Change joke translation in settings" : {
+
+    },
+    "click_fetch_joke" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klicke, um einen Witz zu laden."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Click Fetch Joke."
+          }
+        }
+      }
+    },
+    "copied_to_clipboard" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Witz wurde in die Zwischenablage kopiert."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Joke copied to clipboard."
+          }
+        }
+      }
+    },
+    "developer_p1" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Hallo, ich bin Tristan, der Entwickler hinter ‘JokeFetcher’. Ich hoffe, dir gefällt die App!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hi, I’m Tristan, the developer behind ‘JokeFetcher’. I hope you’re enjoying the app!"
+          }
+        }
+      }
+    },
+    "developer_p2" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ich bin neu in der App-Entwicklung, und ‘JokeFetcher’ ist meine erste kleine App. Sie ist ein persönliches Projekt, um meine Fähigkeiten zu verbessern und gleichzeitig etwas Nützliches und Unterhaltsames zu schaffen. Vielen Dank fürs Ausprobieren!"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I’m new to app development, and ‘JokeFetcher’ is my first small app. It’s a personal project to improve my skills and create something entertaining. Thank you for giving it a try!"
+          }
+        }
+      }
+    },
+    "Display only new jokes" : {
+
+    },
+    "Done" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schon fertig"
+          }
+        }
+      }
+    },
+    "fetch_joke_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lade einen Witz"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fetch Joke"
+          }
+        }
+      }
+    },
+    "GitHub Repository" : {
+
+    },
+    "Give Feedback" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feedback geben"
+          }
+        }
+      }
+    },
+    "I’m new to app development, and ‘Jokes’ is my first small app. It’s a personal project to improve my skills and create something entertaining. Thank you for giving it a try!" : {
+      "extractionState" : "manual"
+    },
+    "Jokes" : {
+
+    },
+    "Jokes translated into German" : {
+
+    },
+    "Jokes translated into other languages" : {
+
+    },
+    "Language" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sprache"
+          }
+        }
+      }
+    },
+    "Language Settings" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übersetzungseinstellungen"
+          }
+        }
+      }
+    },
+    "loading_status" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lädt…"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading…"
+          }
+        }
+      }
+    },
+    "Mark jokes as favorites" : {
+
+    },
+    "no_joke_showing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Witz zu sehen?"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Joke showing?"
+          }
+        }
+      }
+    },
+    "Official Joke API" : {
+
+    },
+    "Privacy Policy" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenschutzrichtlinie"
+          }
+        }
+      }
+    },
+    "Rate Jokes in App Store" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jokes im AppStore bewerten"
+          }
+        }
+      }
+    },
+    "Roadmap" : {
+
+    },
+    "Save translation settings between app launches" : {
+
+    },
+    "Select a language to translate to" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle eine Sprache in welche übersetzt werden soll."
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen"
+          }
+        }
+      }
+    },
+    "Some of these features may be available in the future." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einige dieser Funktionen könnten in Zukunft verfügbar sein."
+          }
+        }
+      }
+    },
+    "Terms of Use" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nutzungsbedingungen"
+          }
+        }
+      }
+    },
+    "thinking_status" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Überlegt…"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thinking…"
+          }
+        }
+      }
+    },
+    "third_party_libraries_info" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese App verwendet die \"Official Joke API\" von GitHub, bereitgestellt von David Katz. \nDer Quellcode steht unter der MIT-Lizenz. Weitere Informationen finden Sie im GitHub Repository.\n\nMIT License\n\nCopyright (c) 2022 David Katz\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This app uses the \"Official Joke API\" from GitHub, provided by David Katz. \nThe source code is licensed under the MIT License. More information can be found at GitHub Repository.\n\nMIT License\n\nCopyright (c) 2022 David Katz\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
+          }
+        }
+      }
+    },
+    "Third-Party Libraries" : {
+
+    },
+    "Translate" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übersetzen"
+          }
+        }
+      }
+    },
+    "Translate to" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übersetzen in"
+          }
+        }
+      }
+    },
+    "translating_status" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übersetze in"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Translating in"
+          }
+        }
+      }
+    },
+    "Translation" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übersetzung"
+          }
+        }
+      }
+    },
+    "translation_info" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte beachte, dass die Übersetzung von Witzen nicht immer perfekt ist. Der Humor und die Bedeutung können sich je nach Sprache und Kultur unterscheiden.\n\nÜbersetzung bereitgestellt von RapidAPI."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please note that the translation of jokes may not always be perfect. Humor and meaning can vary depending on language and culture.\n\nTranslation is powered by RapidAPI."
+          }
+        }
+      }
+    },
+    "View your favorite jokes" : {
+
+    }
+  },
+  "version" : "1.0"
+}
