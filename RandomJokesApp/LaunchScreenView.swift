@@ -1,10 +1,3 @@
-//
-//  LaunchScreenView.swift
-//  RandomJokesApp
-//
-//  Created by Tristan Germer on 27.11.24.
-//
-
 import SwiftUI
 
 struct LaunchScreenView: View {
