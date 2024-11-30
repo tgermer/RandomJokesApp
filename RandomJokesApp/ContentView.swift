@@ -146,17 +146,44 @@ struct ContentView: View {
                     #endif
                     
                     #if os(iOS)
-                    ZStack {
-                        /// Button Fetch Joke
-                        Button(action: {
-                            //                                withAnimation {
-                            resetAnimation()
-                            fetchJoke()
-                            //                                }
-                        }) {
-                            Text(
-                                NSLocalizedString(
-                                    "fetch_joke_button", comment: "")
+                        ZStack {
+                            /// Button Translation Native iOS
+                            /// Button Translate
+                            HStack {
+                                Button(action: {
+                                    showTranslation.toggle()
+                                }) {
+                                    Image(systemName: "globe")
+                                }
+                                .disabled(!translatedText.isEmpty)
+                                Spacer()
+                            }
+                            .padding(.leading, 10)
+                            // Offer a system UI translation.
+                            .translationPresentation(
+                                isPresented: $showTranslation,
+                                text: joke)
+                            /// Button Fetch Joke
+                            Button(action: {
+                                //                                withAnimation {
+                                resetAnimation()
+                                fetchJoke()
+                                //                                }
+                            }) {
+                                Text(
+                                    NSLocalizedString(
+                                        "fetch_joke_button", comment: "")
+                                )
+                                .padding(.vertical, 20)
+                                .padding(.horizontal, 40)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                            }
+                            .background(jokeColor)
+                            .cornerRadius(100)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 100)
+                                    .stroke(Color.white, lineWidth: 2)
                             )
                             .padding(.vertical, 20)
                             .padding(.horizontal, 40)
