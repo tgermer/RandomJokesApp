@@ -144,6 +144,51 @@ struct ContentView: View {
                             .disabled(!translatedText.isEmpty)
                         }
                     #endif
+                    
+                    #if os(iOS)
+                    ZStack {
+                        /// Button Fetch Joke
+                        Button(action: {
+                            //                                withAnimation {
+                            resetAnimation()
+                            fetchJoke()
+                            //                                }
+                        }) {
+                            Text(
+                                NSLocalizedString(
+                                    "fetch_joke_button", comment: "")
+                            )
+                            .padding(.vertical, 20)
+                            .padding(.horizontal, 40)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                        }
+                        .background(jokeColor)
+                        .cornerRadius(100)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 100)
+                                .stroke(Color.white, lineWidth: 2)
+                        )
+                        
+                        /// Button Translate
+                        HStack {
+                            Spacer()
+                            Button(action: {
+                                Task {
+                                    do {
+                                        try await performTranslation()
+                                    } catch {
+                                        print(error)
+                                    }
+                                }
+                            }) {
+                                Image(systemName: "translate")
+                            }
+                            .disabled(!translatedText.isEmpty)
+                        }
+                        .padding(.trailing,10)
+                    }
+                    #endif
                 }
                 .padding()
 
@@ -167,57 +212,6 @@ struct ContentView: View {
                     ToolbarItem(placement: .topBarLeading) {
                         NavigationLink(destination: SettingsView()) {
                             Label("Settings", systemImage: "gearshape")
-                        }
-                    }
-                    // Left button
-                    ToolbarItem(placement: .bottomBar) {
-                        HStack {
-                            Button(action: {
-                                print(
-                                    "Spacer for centering the Button in the middle"
-                                )
-                            }) {
-                                Image(systemName: "translate")
-                                .font(.caption)
-                            }
-                            .hidden()
-                            Spacer()  // Verhindert, dass der mittlere Button nach links verschoben wird
-                            Button(action: {
-                                //                                withAnimation {
-                                resetAnimation()
-                                fetchJoke()
-                                //                                }
-                            }) {
-                                Text(
-                                    NSLocalizedString(
-                                        "fetch_joke_button", comment: "")
-                                )
-                                .padding(.vertical, 15)
-                                .padding(.horizontal, 30)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.white)
-                            }
-                            .background(jokeColor)
-                            .cornerRadius(100)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 100)
-                                    .stroke(Color.white, lineWidth: 2)
-                            )
-                            Spacer()  // Verhindert, dass der rechte Button nach rechts verschoben wird
-                            Button(action: {
-                                // Perform your action
-                                Task {
-                                    do {
-                                        try await performTranslation()
-                                    } catch {
-                                        print(error)
-                                    }
-                                }
-                            }) {
-                                Image(systemName: "translate")
-                                .font(.caption)
-                            }
-                            .disabled(!translatedText.isEmpty)
                         }
                     }
                 }
