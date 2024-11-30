@@ -1,4 +1,5 @@
 import SwiftUI
+import Translation
 
 struct ContentView: View {
 
@@ -26,6 +27,8 @@ struct ContentView: View {
 
     @State private var showLanguageSelectionViewTvOs: Bool = false
     @FocusState private var focusedButtonTvOs: Bool?  // Fokus für den Button speichern
+
+    @State private var showTranslation = false
 
     var body: some View {
         NavigationStack {
