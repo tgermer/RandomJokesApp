@@ -139,6 +139,9 @@
         }
       }
     },
+    "Joke type selection" : {
+
+    },
     "Jokes" : {
 
     },
@@ -303,6 +306,19 @@
         }
       }
     },
+    "Punchline" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pointe"
+          }
+        }
+      }
+    },
+    "Punchline on demand" : {
+
+    },
     "Rate Jokes in App Store" : {
       "localizations" : {
         "de" : {
@@ -338,6 +354,37 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Einstellungen"
+          }
+        }
+      }
+    },
+    "Show Punchline" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeige Pointe"
+          }
+        }
+      }
+    },
+    "Show Punchline on Demand" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pointe nach Tap"
+          }
+        }
+      }
+    },
+    "show_punchline_button" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeige Pointe"
           }
         }
       }

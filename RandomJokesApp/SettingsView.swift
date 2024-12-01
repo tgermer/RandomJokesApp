@@ -11,6 +11,9 @@ struct SettingsView: View {
     @AppStorage("selectedJokeType") private
     var storedJokeType: String = JokeType.all.rawValue
     
+    @AppStorage("showPunchlineOnDemand") private
+    var showPunchlineOnDemand: Bool = false
+    
     @State private var selectedJokeType: JokeType = .all
     
     @State private var selectedTranslationLanguage: Language = .german
@@ -42,17 +45,24 @@ struct SettingsView: View {
                         Menu {
                             Picker("Joke Type", selection: $selectedJokeType) {
                                 ForEach(JokeType.allCases, id: \.self) { type in
-                                    Text(type.localizedName)
+                                    Text(type.displayName)
                                         .tag(type)
                                 }
                             }
                         } label: {
-                            Text(selectedJokeType.localizedName)
+                            Text(selectedJokeType.displayName)
                                 .foregroundColor(.secondary)
                         }
                     }
                     .onChange(of: selectedJokeType) { newValue in
                         storedJokeType = newValue.rawValue
+                    }
+                }
+                Section("Punchline") {
+                    Toggle(isOn: $showPunchlineOnDemand) {
+                        Label("Show Punchline on Demand", systemImage: "hand.tap")
+                            .symbolRenderingMode(.hierarchical)
+                            .foregroundColor(Color("AppPrimary"))
                     }
                 }
                 Section(
@@ -223,6 +233,9 @@ struct RoadmapView: View {
                             .font(.title2)
                             .padding(.vertical)
                         VStack(alignment: .leading, spacing: 15) {
+                            Label(
+                                "Punchline on demand",
+                                systemImage: "checkmark.circle")
                             Label(
                                 "Joke type selection",
                                 systemImage: "checkmark.circle")

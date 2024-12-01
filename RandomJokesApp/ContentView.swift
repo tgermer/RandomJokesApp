@@ -13,6 +13,11 @@ struct ContentView: View {
     @AppStorage("selectedJokeType") private
     var storedJokeType: String = JokeType.all.rawValue
 
+    @AppStorage("showPunchlineOnDemand") private
+    var showPunchlineOnDemand: Bool = false
+    
+    @State private var isPunchlineVisible: Bool = false
+
     private var currentJokeType: JokeType {
         JokeType.allCases.first(where: { $0.rawValue == storedJokeType }) ?? .all
     }
@@ -93,12 +98,24 @@ struct ContentView: View {
                                     .fontWeight(.semibold)
                                     .multilineTextAlignment(.center)
                                     .padding(.bottom, 40)
-                                //                                    .transition(.move(edge: .bottom))
-                                Text(punchline)
-                                    .font(.title)
-                                    .multilineTextAlignment(.center)
-                                    .padding(.bottom, 40)
-                                    .transition(.move(edge: .bottom))
+                                
+                                if showPunchlineOnDemand {
+                                    if isPunchlineVisible {
+                                        Text(punchline)
+                                            .font(.title)
+                                            .multilineTextAlignment(.center)
+                                            .padding(.bottom, 40)
+                                            .transition(.move(edge: .bottom))
+                                    }
+                                        else {
+                                    }
+                                } else {
+                                    Text(punchline)
+                                        .font(.title)
+                                        .multilineTextAlignment(.center)
+                                        .padding(.bottom, 40)
+                                        .transition(.move(edge: .bottom))
+                                }
                             }
                             .copyGesture(joke) { joke in
                                 //                                copyToClipboard(joke)
@@ -161,16 +178,21 @@ struct ContentView: View {
                     
                     #if os(iOS)
                     ZStack {
-                        /// Button Fetch Joke
+                        /// Button Fetch Joke / Show Punchline
                         Button(action: {
-                            //                                withAnimation {
-                            resetAnimation()
-                            fetchJoke()
-                            //                                }
+                            if showPunchlineOnDemand && !setup.isEmpty && !isPunchlineVisible {
+                                withAnimation {
+                                    isPunchlineVisible = true
+                                }
+                            } else {
+                                resetAnimation()
+                                fetchJoke()
+                            }
                         }) {
                             Text(
-                                NSLocalizedString(
-                                    "fetch_joke_button", comment: "")
+                                showPunchlineOnDemand && !setup.isEmpty && !isPunchlineVisible ?
+                                NSLocalizedString("show_punchline_button", comment: "") :
+                                NSLocalizedString("fetch_joke_button", comment: "")
                             )
                             .padding(.vertical, 20)
                             .padding(.horizontal, 40)
@@ -184,7 +206,6 @@ struct ContentView: View {
                                 .stroke(Color.white, lineWidth: 2)
                         )
                         
-                        /// Button Translate
                         /// Button Translate
                         HStack {
                             Spacer()
@@ -257,6 +278,8 @@ struct ContentView: View {
     }
 
     func fetchJoke() {
+        // Reset states
+        isPunchlineVisible = false  // Reset punchline visibility when fetching new joke
         joke = NSLocalizedString("loading_status", comment: "")
         setup = NSLocalizedString("loading_status", comment: "")
         punchline = NSLocalizedString("thinking_status", comment: "")
