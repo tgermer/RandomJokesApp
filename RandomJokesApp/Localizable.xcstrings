@@ -55,7 +55,7 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Hallo, ich bin Tristan, der Entwickler hinter ‘JokeFetcher’. Ich hoffe, dir gefällt die App!"
           }
         },
@@ -71,7 +71,7 @@
       "localizations" : {
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Ich bin neu in der App-Entwicklung, und ‘JokeFetcher’ ist meine erste kleine App. Sie ist ein persönliches Projekt, um meine Fähigkeiten zu verbessern und gleichzeitig etwas Nützliches und Unterhaltsames zu schaffen. Vielen Dank fürs Ausprobieren!"
           }
         },
@@ -360,6 +360,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Please note that the translation of jokes may not always be perfect. Humor and meaning can vary depending on language and culture.\n\nTranslation is powered by RapidAPI."
+          }
+        }
+      }
+    },
+    "translation_info_native" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte beachte, dass die Übersetzung von Witzen nicht immer perfekt ist. Der Humor und die Bedeutung können sich je nach Sprache und Kultur unterscheiden.\n\nDie Übersetzung wir als Überblendung angezeigt.\n\nÜbersetzung bereitgestellt von RapidAPI."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please note that the translation of jokes may not always be perfect. Humor and meaning can vary depending on language and culture.\n\nThe translation is shown as a sheet.\n\nTranslation is powered by RapidAPI."
+          }
+        }
+      }
+    },
+    "Use Built-in Translation" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Integrierte Übersetzung verwenden"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use Built-in Translation"
           }
         }
       }

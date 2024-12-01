@@ -6,6 +6,9 @@ struct ContentView: View {
     @AppStorage("selectedTranslationLanguage") private
         var storedTranslationLanguage: String = Language.german.rawValue
     @State private var selectedTranslationLanguage: Language = .german
+    
+    @AppStorage("selectedTranslationTypeNative") private
+        var storedTranslationTypeNative: Bool = false
 
     @State private var joke: String = ""
     @State private var type: String = ""
@@ -27,7 +30,7 @@ struct ContentView: View {
 
     @State private var showLanguageSelectionViewTvOs: Bool = false
     @FocusState private var focusedButtonTvOs: Bool?  // Fokus für den Button speichern
-
+    
     @State private var showTranslation = false
 
     var body: some View {
@@ -149,44 +152,17 @@ struct ContentView: View {
                     #endif
                     
                     #if os(iOS)
-                        ZStack {
-                            /// Button Translation Native iOS
-                            /// Button Translate
-                            HStack {
-                                Button(action: {
-                                    showTranslation.toggle()
-                                }) {
-                                    Image(systemName: "globe")
-                                }
-                                .disabled(!translatedText.isEmpty)
-                                Spacer()
-                            }
-                            .padding(.leading, 10)
-                            // Offer a system UI translation.
-                            .translationPresentation(
-                                isPresented: $showTranslation,
-                                text: joke)
-                            /// Button Fetch Joke
-                            Button(action: {
-                                //                                withAnimation {
-                                resetAnimation()
-                                fetchJoke()
-                                //                                }
-                            }) {
-                                Text(
-                                    NSLocalizedString(
-                                        "fetch_joke_button", comment: "")
-                                )
-                                .padding(.vertical, 20)
-                                .padding(.horizontal, 40)
-                                .fontWeight(.semibold)
-                                .foregroundColor(.white)
-                            }
-                            .background(jokeColor)
-                            .cornerRadius(100)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 100)
-                                    .stroke(Color.white, lineWidth: 2)
+                    ZStack {
+                        /// Button Fetch Joke
+                        Button(action: {
+                            //                                withAnimation {
+                            resetAnimation()
+                            fetchJoke()
+                            //                                }
+                        }) {
+                            Text(
+                                NSLocalizedString(
+                                    "fetch_joke_button", comment: "")
                             )
                             .padding(.vertical, 20)
                             .padding(.horizontal, 40)
@@ -201,22 +177,34 @@ struct ContentView: View {
                         )
                         
                         /// Button Translate
+                        /// Button Translate
                         HStack {
                             Spacer()
-                            Button(action: {
-                                Task {
-                                    do {
-                                        try await performTranslation()
-                                    } catch {
-                                        print(error)
-                                    }
+                            if storedTranslationTypeNative == true {
+                                /// Button Translate Native
+                                Button(action: {
+                                    showTranslation.toggle()
+                                }) {
+                                    Image(systemName: "translate")
                                 }
-                            }) {
-                                Image(systemName: "translate")
+                                .disabled(!translatedText.isEmpty)
+                                .translationPresentation(isPresented: $showTranslation, text: joke)
+                            } else {
+                                Button(action: {
+                                    Task {
+                                        do {
+                                            try await performTranslation()
+                                        } catch {
+                                            print(error)
+                                        }
+                                    }
+                                }) {
+                                    Image(systemName: "translate")
+                                }
+                                .disabled(!translatedText.isEmpty)
                             }
-                            .disabled(!translatedText.isEmpty)
                         }
-                        .padding(.trailing,10)
+                        .padding(.trailing, 10)
                     }
                     #endif
                 }
@@ -257,6 +245,7 @@ struct ContentView: View {
             updateLanguage()
             translatedText = ""  // Reset translated text to enable the translation button
         }
+
     }
 
     func fetchJoke() {

@@ -4,7 +4,12 @@ struct SettingsView: View {
 
     @AppStorage("selectedTranslationLanguage") private
         var storedTranslationLanguage: String = Language.german.rawValue
+    
+    @AppStorage("selectedTranslationTypeNative") private
+    var storedTranslationTypeNative: Bool = false
+    
     @State private var selectedTranslationLanguage: Language = .german
+    
     @State private var showRoadmapSheet: Bool = false
     @State private var showAboutDeveloperSheet: Bool = false
 
@@ -25,41 +30,45 @@ struct SettingsView: View {
                 }
                 Section(
                     header: Text("Translation"),
-                    footer: Text("translation_info")
+                    footer: storedTranslationTypeNative ? Text("translation_info_native") : Text("translation_info")
                 ) {
-                    HStack {
-                        Label("Translate to", systemImage: "translate")
-                            .symbolRenderingMode(.hierarchical)
-                            .foregroundColor(Color("AppPrimary"))
-                        Spacer()
-                        Menu {
-                            Picker(
-                                "Language",
-                                selection: $selectedTranslationLanguage
-                            ) {
-                                ForEach(
-                                    Language.allCases.filter { $0 != .english }
-                                        .sorted { $0.name < $1.name }
-                                ) { language in
-                                    Text(language.name).tag(language)
+                    Toggle("Use Built-in Translation", systemImage: "translate", isOn: $storedTranslationTypeNative)
+                        .symbolRenderingMode(.hierarchical)
+                        .foregroundColor(Color("AppPrimary"))
+                    if !storedTranslationTypeNative {
+                        HStack {
+                            Label("Translate to", systemImage: "translate")
+                                .symbolRenderingMode(.hierarchical)
+                                .foregroundColor(Color("AppPrimary"))
+                            Spacer()
+                            Menu {
+                                Picker(
+                                    "Language",
+                                    selection: $selectedTranslationLanguage
+                                ) {
+                                    ForEach(
+                                        Language.allCases.filter { $0 != .english }
+                                            .sorted { $0.name < $1.name }
+                                    ) { language in
+                                        Text(language.name).tag(language)
+                                    }
                                 }
+                            } label: {
+                                Text(selectedTranslationLanguage.name)
+                                    .foregroundColor(.secondary)
                             }
-                        } label: {
-                            Text(selectedTranslationLanguage.name)
-                                .foregroundColor(.secondary)
+                            .onChange(of: selectedTranslationLanguage) { newValue in
+                                // Aktion, wenn die Sprache geändert wird
+                                print(
+                                    "SV Selected Language: \(newValue.name) (\(newValue.rawValue))"
+                                )
+                                // Speichern der neuen Sprache in @AppStorage
+                                storedTranslationLanguage = newValue.rawValue
+                                print(
+                                    "SV Stored Language: \(storedTranslationLanguage)"
+                                )
+                            }
                         }
-                        .onChange(of: selectedTranslationLanguage) { newValue in
-                            // Aktion, wenn die Sprache geändert wird
-                            print(
-                                "SV Selected Language: \(newValue.name) (\(newValue.rawValue))"
-                            )
-                            // Speichern der neuen Sprache in @AppStorage
-                            storedTranslationLanguage = newValue.rawValue
-                            print(
-                                "SV Stored Language: \(storedTranslationLanguage)"
-                            )
-                        }
-
                     }
                 }
                 Section {
