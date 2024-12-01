@@ -10,6 +10,13 @@ struct ContentView: View {
     @AppStorage("selectedTranslationTypeNative") private
         var storedTranslationTypeNative: Bool = false
 
+    @AppStorage("selectedJokeType") private
+    var storedJokeType: String = JokeType.all.rawValue
+
+    private var currentJokeType: JokeType {
+        JokeType.allCases.first(where: { $0.rawValue == storedJokeType }) ?? .all
+    }
+
     @State private var joke: String = ""
     @State private var type: String = ""
     @State private var setup: String = ""
@@ -45,7 +52,8 @@ struct ContentView: View {
                 VStack {
                     if type.isEmpty {
                     } else {
-                        Label(type.capitalized, systemImage: "tag")
+//                        Label(type.capitalized, systemImage: "tag")
+                        Label(NSLocalizedString("jokeType_\(type.replacingOccurrences(of: "-", with: ""))", comment: ""), systemImage: "tag")
                             .font(.caption2)
                             .bold()
                             .padding(.vertical, 5)
@@ -255,10 +263,7 @@ struct ContentView: View {
         type = ""
         translatedText = ""
 
-        guard
-            let url = URL(
-                string: "https://official-joke-api.appspot.com/random_joke")
-        else {
+        guard let url = URL(string: currentJokeType.rawValue) else {
             print("Invalid URL")
             return
         }
@@ -267,8 +272,7 @@ struct ContentView: View {
             if let error = error {
                 print("Error fetching data: \(error.localizedDescription)")
                 DispatchQueue.main.async {
-                    self.joke =
-                        "Failed to fetch joke: \(error.localizedDescription)"
+                    self.joke = "Failed to fetch joke: \(error.localizedDescription)"
                 }
                 return
             }
@@ -281,32 +285,41 @@ struct ContentView: View {
                 return
             }
 
-            if let decodedResponse = try? JSONDecoder().decode(
-                Joke.self, from: data)
-            {
-                DispatchQueue.main.async {
-                    // Animation hinzufügen
-                    self.joke =
-                        "\(decodedResponse.setup)\n\n\(decodedResponse.punchline)"
-                    self.textToTranslate =
-                        "\(decodedResponse.setup)\n\n\(decodedResponse.punchline)"
-                    self.setup = decodedResponse.setup
-                    self.id = decodedResponse.id
-                    self.type = decodedResponse.type
-                    withAnimation(.linear(duration: 0.5)) {
-                        self.jokeColor = colorForType(decodedResponse.type)
-                    }
-                    withAnimation(.linear(duration: 0.1).delay(0.8)) {
-                        self.punchline = decodedResponse.punchline
+            do {
+                if currentJokeType == .all {
+                    // Für Random: Einzelner Witz
+                    let decodedResponse = try JSONDecoder().decode(Joke.self, from: data)
+                    updateJokeUI(with: decodedResponse)
+                } else {
+                    // Für spezifische Typen: Array mit einem Witz
+                    let jokes = try JSONDecoder().decode([Joke].self, from: data)
+                    if let decodedResponse = jokes.first {
+                        updateJokeUI(with: decodedResponse)
                     }
                 }
-            } else {
-                print("Failed to decode JSON")
+            } catch {
+                print("Failed to decode JSON: \(error)")
                 DispatchQueue.main.async {
                     self.joke = "Failed to decode joke"
                 }
             }
         }.resume()
+    }
+
+    private func updateJokeUI(with joke: Joke) {
+        DispatchQueue.main.async {
+            self.joke = "\(joke.setup)\n\n\(joke.punchline)"
+            self.textToTranslate = "\(joke.setup)\n\n\(joke.punchline)"
+            self.setup = joke.setup
+            self.id = joke.id
+            self.type = joke.type
+            withAnimation(.linear(duration: 0.5)) {
+                self.jokeColor = self.colorForType(joke.type)
+            }
+            withAnimation(.linear(duration: 0.1).delay(0.8)) {
+                self.punchline = joke.punchline
+            }
+        }
     }
 
     func colorForType(_ type: String) -> Color {

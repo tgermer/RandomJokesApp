@@ -129,6 +129,16 @@
     "I’m new to app development, and ‘Jokes’ is my first small app. It’s a personal project to improve my skills and create something entertaining. Thank you for giving it a try!" : {
       "extractionState" : "manual"
     },
+    "Joke Type" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Witzkategorie"
+          }
+        }
+      }
+    },
     "Jokes" : {
 
     },
@@ -137,6 +147,91 @@
     },
     "Jokes translated into other languages" : {
 
+    },
+    "jokeType_all" : {
+      "comment" : "Random of all Types",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zufällig aus allen Kategorien"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Random of all Types"
+          }
+        }
+      }
+    },
+    "jokeType_dad" : {
+      "comment" : "Dad",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vater"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dad"
+          }
+        }
+      }
+    },
+    "jokeType_general" : {
+      "comment" : "General",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allgemein"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "General"
+          }
+        }
+      }
+    },
+    "jokeType_knockknock" : {
+      "comment" : "Knock Knock",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klopfwitz"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Knock-Knock"
+          }
+        }
+      }
+    },
+    "jokeType_programming" : {
+      "comment" : "Programming",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Programmierung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Programming"
+          }
+        }
+      }
     },
     "Language" : {
       "localizations" : {
@@ -233,6 +328,9 @@
           }
         }
       }
+    },
+    "Select Joke Type" : {
+
     },
     "Settings" : {
       "localizations" : {

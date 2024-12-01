@@ -8,6 +8,11 @@ struct SettingsView: View {
     @AppStorage("selectedTranslationTypeNative") private
     var storedTranslationTypeNative: Bool = false
     
+    @AppStorage("selectedJokeType") private
+    var storedJokeType: String = JokeType.all.rawValue
+    
+    @State private var selectedJokeType: JokeType = .all
+    
     @State private var selectedTranslationLanguage: Language = .german
     
     @State private var showRoadmapSheet: Bool = false
@@ -27,6 +32,28 @@ struct SettingsView: View {
                         label: "Rate Jokes in App Store",
                         systemImage: "star.fill",
                         destinationString: "https://apps.apple.com/app/id15/")
+                }
+                Section("Joke Type") {
+                    HStack {
+                        Label("Select Joke Type", systemImage: "theatermasks")
+                            .symbolRenderingMode(.hierarchical)
+                            .foregroundColor(Color("AppPrimary"))
+                        Spacer()
+                        Menu {
+                            Picker("Joke Type", selection: $selectedJokeType) {
+                                ForEach(JokeType.allCases, id: \.self) { type in
+                                    Text(type.localizedName)
+                                        .tag(type)
+                                }
+                            }
+                        } label: {
+                            Text(selectedJokeType.localizedName)
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    .onChange(of: selectedJokeType) { newValue in
+                        storedJokeType = newValue.rawValue
+                    }
                 }
                 Section(
                     header: Text("Translation"),
@@ -124,6 +151,9 @@ struct SettingsView: View {
         .onAppear {
             selectedTranslationLanguage =
                 Language(rawValue: storedTranslationLanguage) ?? .german
+            if let type = JokeType.allCases.first(where: { $0.rawValue == storedJokeType }) {
+                selectedJokeType = type
+            }
         }
         .onChange(of: selectedTranslationLanguage) { newValue in
             storedTranslationLanguage = newValue.rawValue
@@ -193,6 +223,9 @@ struct RoadmapView: View {
                             .font(.title2)
                             .padding(.vertical)
                         VStack(alignment: .leading, spacing: 15) {
+                            Label(
+                                "Joke type selection",
+                                systemImage: "checkmark.circle")
                             Label(
                                 "Jokes translated into German",
                                 systemImage: "checkmark.circle")
