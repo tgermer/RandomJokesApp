@@ -9,6 +9,7 @@ import SwiftUI
 
 struct JokeTypeLabel: View {
     var type: String
+//    @Binding var selectedJokeType: JokeType
 
     var body: some View {
         if !type.isEmpty {
@@ -20,6 +21,15 @@ struct JokeTypeLabel: View {
                 .background(Color.white.opacity(0.1))
                 .foregroundStyle(.white)
                 .clipShape(Capsule())
+//                .overlay(
+//                    Group {
+//                        if selectedJokeType != .all {
+//                            Capsule()
+//                                .stroke(Color.white, lineWidth: 1)
+//                                .padding(-3)
+//                        }
+//                    }
+//                )
         }
     }
 }
@@ -29,7 +39,11 @@ struct JokeTypeLabel: View {
         Rectangle().fill(.blue.gradient)
             .rotationEffect(.degrees(180))
             .ignoresSafeArea()
-        JokeTypeLabel(type: "programming")
+        VStack {
+            JokeTypeLabel(type: "programming")
+                .padding(.bottom, 30)
+            JokeTypeLabel(type: "programming")
+        }
     }
 }
 
