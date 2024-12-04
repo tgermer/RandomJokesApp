@@ -55,18 +55,7 @@ struct ContentView: View {
                 }
 
                 VStack {
-                    if type.isEmpty {
-                    } else {
-//                        Label(type.capitalized, systemImage: "tag")
-                        Label(NSLocalizedString("jokeType_\(type.replacingOccurrences(of: "-", with: ""))", comment: ""), systemImage: "tag")
-                            .font(.caption2)
-                            .bold()
-                            .padding(.vertical, 5)
-                            .padding(.horizontal, 10)
-                            .background(Color.white.opacity(0.1))
-                            .foregroundStyle(.white)
-                            .clipShape(Capsule())
-                    }
+                    JokeTypeLabel(type: type)
 
                     Spacer()
 
