@@ -1,5 +1,6 @@
 import SwiftUI
 import Translation
+import TipKit
 
 struct ContentView: View {
 
@@ -44,6 +45,8 @@ struct ContentView: View {
     @FocusState private var focusedButtonTvOs: Bool?  // Fokus für den Button speichern
     
     @State private var showTranslation = false
+
+    //@State private var selectedJokeType: JokeType = .all // Zustand für den ausgewählten Witztyp
 
     var body: some View {
         NavigationStack {
@@ -106,9 +109,11 @@ struct ContentView: View {
                                         .transition(.move(edge: .bottom))
                                 }
                             }
+                            #if os(iOS)
                             .copyGesture(joke) { joke in
-                                //                                copyToClipboard(joke)
+                                copyToClipboard(joke)
                             }
+                            #endif
                         }
 
                     }
@@ -230,17 +235,21 @@ struct ContentView: View {
 
                 // Toast Message (displayed for a short time)
                 if showToast {
-                    Text(toastMessage)
-                        .font(.body)
-                        .padding()
+                    HStack(alignment: .top, spacing: 15) {
+                        Image(systemName: "document.on.clipboard")
+                        Text(toastMessage)
+                            .font(.body)
+                            .multilineTextAlignment(.leading)
+                    }
+                    .frame(maxWidth: 200)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 40)
                         .background(
-                            Color.black.opacity(0.7),
+                            Material.thin,
                             in: RoundedRectangle(cornerRadius: 10)
                         )
-                        .foregroundColor(.white)
                         .transition(.move(edge: .bottom))
                         .animation(.easeInOut, value: showToast)
-                        .padding(.bottom, 40)
                 }
             }
             #if os(iOS)
@@ -463,6 +472,6 @@ extension ContentView {
     }
 }
 
-#Preview {
+#Preview("Start Screen") {
     ContentView()
 }

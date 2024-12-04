@@ -234,6 +234,9 @@ struct RoadmapView: View {
                             .padding(.vertical)
                         VStack(alignment: .leading, spacing: 15) {
                             Label(
+                                "Copy joke to clipboard",
+                                systemImage: "checkmark.circle")
+                            Label(
                                 "Punchline on demand",
                                 systemImage: "checkmark.circle")
                             Label(
