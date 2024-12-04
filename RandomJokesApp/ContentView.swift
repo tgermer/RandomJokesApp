@@ -275,7 +275,7 @@ struct ContentView: View {
 
     }
 
-    func fetchJoke() {
+    private func fetchJoke() {
         // Reset states
         isPunchlineVisible = false  // Reset punchline visibility when fetching new joke
         joke = NSLocalizedString("loading_status", comment: "")
@@ -386,13 +386,6 @@ struct ContentView: View {
         }
 
     }
-}
-
-struct Joke: Codable {
-    var id: Int
-    var type: String
-    var setup: String
-    var punchline: String
 }
 
 // MARK: - View Extension
